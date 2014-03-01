@@ -45,7 +45,7 @@
       <!--ADD THE FORM CONTENT FROM HERE DOWNWARD-->
       <div class="row col-md-12">
         <div class="page-header">
-          <h3>Part 1: Your background</h3>
+          <h3>Your background</h3>
         </div>
       </div>
 
@@ -149,9 +149,6 @@
                  <button type="button" class="btn btn-default">Cummulative average</button>
                </div>
               </div>
-              <div class="col-md-12" id="">
-                INPUT
-              </div>
             </div>
           </div>
 
@@ -171,6 +168,105 @@
               </div>
             </div>
           </div>
+
+        </form>
+
+        <form class="form-horizontal" role="form">
+         <h4>Employment history</h4>
+         <hr>
+          <div class="form-group">
+            <div class="col-md-2">
+              <label class="control-label">Most recent employer</label>
+            </div>
+            <div class="col-md-8">
+              <div class="col-md-12">
+                <select class="form-control">
+                  <option>Please select...</option>
+                  <option>3M</option>
+                  <option>AT Kearney</option>
+                  <option>...</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2">
+              <label class="control-label">Industry</label>
+            </div>
+            <div class="col-md-8">
+              <div class="col-md-12">
+                <select class="form-control">
+                  <option>Please select...</option>
+                  <option>Banking</option>
+                  <option>Management consulting</option>
+                  <option>...</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+         <div class="form-group">
+           <div class="col-md-2">
+             <label class="control-label">Nature of job</label>
+           </div>
+           <div class="col-md-8">
+             <div class="col-md-12">
+               <select class="form-control">
+                 <option>Please select...</option>
+                 <option>Part time</option>
+                 <option>Full time</option>
+                 <option>Internship</option>
+               </select>
+             </div>
+           </div>
+         </div>
+
+
+         <div class="form-group">
+           <div class="col-md-2">
+             <label class="control-label">Title</label>
+           </div>
+           <div class="col-sm-8">
+             <div class="col-md-6">
+               <select class="form-control">
+                 <option>Please select...</option>
+                 <option>Analyst</option>
+                 <option>Associate</option>
+                 <option>Manager</option>
+                 <option>...</option>
+               </select>
+             </div>
+           </div>
+         </div>
+
+
+          <div class="form-group">
+            <div class="col-md-2">
+              <label class="control-label">Employment History</label>
+            </div>
+            <div class="col-sm-8">
+             <div class="col-md-6">
+                <p>Start date: <input type="text" id="datepicker"></p>
+              </div>
+              <div class="col-md-6">
+                 <p>End date: <input type="text" id="datepicker"></p>
+               </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-2">
+              <label class="control-label">Top achievements</label>
+            </div>
+            <div class="col-sm-8">
+              <div class="col-md-12">
+                <textarea class="form-control" rows="3" placeholder="List up to 3 top achievements"></textarea>
+            </div>
+            </div>
+          </div>
+
 
         </form>
 
@@ -195,17 +291,16 @@
   </body>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <!--<script>
-  $("#Locality").blur(function() {
-    if($('#Locality').val() == '')
-      $('#showLocalityTip').show();
-  )};
-   
-  </script>-->
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script>
   $('#Locality').change(function(){
     $('#showLocalityTip').show();  
   });
   </script>
+  <script>
+   $(function() {
+     $( "#datepicker" ).datepicker();
+   });
+   </script>
  
 </html>
