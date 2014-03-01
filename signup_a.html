@@ -14,7 +14,6 @@
     <br>
     <br>
 
-    <div class="container">
 
 
     <br>
@@ -24,7 +23,7 @@
       <!--ADD THE FORM CONTENT FROM HERE DOWNWARD-->
       <div class="col-md-12">
       <div class="page-header">
-        <h1 style="padding:10px;">Welcome, Amit</h1>
+        <h1 style="padding:10px;">Welcome, James</h1>
       </div>
       <input type="email" class="form-control" placeholder="Enter your email">
       <input type="password" class="form-control" placeholder="Password">
@@ -44,27 +43,45 @@
 
       <br>
       <br>
-      <a href="signup_b.html"><p class="btn btn-primary">Continue</p></a>
+      <a href="signup_b.html" id="#yourButtonId"><p class="btn btn-primary">Continue</p></a>
       <br>
       <br>
     </div>
     
 
-    <!--<div id="myTextDiv">
-      <div class="well">
-        <div class="page-header">
-          <h1>walks to work</h1>
-        </div>
-        <a href="index2.html">talk a walk >></a>
-      </div>
-    </div>-->
-
   </body>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
   <script>
-  $( document ).ready(function() {
-      setTimeout(drop(),5000);
+    $('#yourButtonId').click(function() {
+      $.ajax({
+        type: “POST”,
+        url: “https://mandrillapp.com/api/1.0/messages/send.json”,
+        data: {
+          ‘key’: ‘Kx9ybT9I9ImICuV3J57rkQ’,
+          ‘message’: {
+            ‘from_email’: ‘info@teachforindia.org’,
+            ‘to’: [
+                {
+                  ‘email’: ‘jamesliublr@gmail.com’,
+                  ‘name’: ‘James’,
+                  ‘type’: ‘to’
+                },
+                {
+                  ‘email’: ‘RECIPIENT_NO_2@EMAIL.HERE’,
+                  ‘name’: ‘ANOTHER RECIPIENT NAME (OPTIONAL)’,
+                  ‘type’: ‘to’
+                }
+              ],
+            ‘autotext’: ‘true’,
+            ‘subject’: ‘Welcome to Teach For India’,
+            ‘html’: ‘EXAMPLE WELCOME EMAIL’
+          }
+        }
+       }).done(function(response) {
+         console.log(response); // if you're into that sorta thing
+       });
     });
   </script>
  
