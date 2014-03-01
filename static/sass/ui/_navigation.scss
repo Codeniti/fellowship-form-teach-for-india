@@ -1,0 +1,309 @@
+/* Navigation */
+@import "compass/css3/border-radius";
+@import "compass/css3/user-interface";
+
+$green: #1abc9c;
+$active-green: #16a085;
+$hover-green: #48c9b0;
+$border-grey: #C0C0C0;
+$dark-blue: #34495e;
+$green-hover: #1abc9c;
+
+$snap-animation : cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+.icons.navigation {
+    ul {
+        display: inline-block;
+        margin-bottom: 0;
+        li {
+            padding-bottom: 0;
+            list-style: none;
+            display: inline-block;
+            a {
+                @include transition(background .3s ease-out 0s);
+                background: $green;
+                display: block;
+                padding: 10px 12px 6px 12px;
+                color: white;
+                span {
+                    font-size: 20px;
+                }
+            }
+            a.active {
+                background: $active-green;
+            }
+            a:hover {
+                background: $hover-green;
+            }
+        }
+        li:first-child > a {
+            @include border-radius(4px 0px 0px 4px);
+        }
+        li:last-child > a {
+            @include border-radius(0px 4px 4px 0px);
+        }
+    }
+}
+
+/* Pagination */
+
+/*div.pagination {
+    position: relative;
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    @include border-radius(4px);
+    ul {
+        background: #d6dbdf;
+        color: #ffffff;
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+        @include border-radius(6px);
+        li {
+            padding-bottom: 0;
+            display: inline-block;
+            vertical-align: middle;
+            a {
+                display: inline-block;
+                background: #ffffff;
+                border: 5px solid #d6dbdf;
+                color: #ffffff;
+                font-size: 14px;
+                line-height: 16px;
+                margin: 7px 2px 6px;
+                min-width: 0;
+                min-height: 16px;
+                padding: 0 4px;
+                @include border-radius(50px);
+                @include transition(background .2s ease-out 0s, border-color 0s ease-out 0s, color .2s ease-out 0s);
+            }
+            a:focus, a:hover {
+                background-color: $green-hover;
+                border-color: $green-hover;
+            }
+        }
+        li.active > a, li.active > span {
+            background-color: #ffffff;
+            border-color: #ffffff;
+            border-width: 2px !important;
+            color: #d6dbdf;
+            margin: 10px 5px 9px;
+        }
+        li.previous > a, li.next > a, li.previous > span, li.next > span {
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            padding: 12px;
+            @include border-radius(0px);
+            margin: 0;
+        }
+        li.previous {
+            margin-right: 9px;
+            a {
+                @include border-radius(6px 0 0 6px);
+                border-right: 2px solid $pagination-border-grey;
+            }
+            a:hover {
+                background: $green-hover;
+            }
+        }
+        li.next {
+            margin-left: 9px;
+            a {
+                @include border-radius(0 6px 6px 0);
+                border-left: 2px solid $pagination-border-grey;
+            }
+            a:hover {
+                background: $green-hover;
+            }
+        }
+    }
+}*/
+
+/* Navigation bar (What we gonna do 'bout the background of navbar? also direct navbar list elements? Decide later man.) */
+
+.navigation-bar {
+    display: inline-block;
+    nav {
+        ul {
+            margin-bottom: 0;
+            li {
+                position: relative;
+                padding-bottom: 0;
+                display: inline-block;
+                list-style: none;
+                a {
+                    display: block;
+                    padding: 10px 15px;
+                }
+            }
+            /*ul.submenu > li.menu-container {
+                padding-right: 20px;
+            }
+            ul.submenu > li.menu-container:after {
+                font-family: 'icomoon';
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                content: "\ea4d";
+                position: absolute;
+                z-index: 100;
+                top: 50%;
+                margin-top: -8px;
+                right: 25px;
+                color: white;
+            }*/
+            li.menu-container > ul.submenu {
+                @include transition(all 0.2s $snap-animation 0s);
+                margin: 0;
+                position: absolute;
+                top: 0px;
+                left: 0;
+                @include opacity(0);
+                pointer-events: none;
+                z-index: 100;
+                li {
+                    position: relative;
+                    a {
+                        background: $dark-blue;
+                        @include transition(all 0.2s ease 0s);
+                        color: white;
+                        padding: 10px 20px;
+                        font-size: 14px;
+                    }
+                    a:hover {
+                        background: $green-hover;
+                    }       
+                    
+                }
+                
+                /*li.menu-container:hover > ul.submenu {
+                    @include transform(translate3d(100%, 0, 0));
+                }
+                
+                li.menu-container > ul.submenu:after {
+                    content: none;
+                }*/
+                
+                li:first-child > a {
+                    @include border-radius(4px 4px 0px 0px);
+                }
+                li:last-child > a {
+                    @include border-radius(0px 0px 4px 4px);
+                }
+                
+            }
+            li.menu-container > ul.submenu:after {
+                content: "";
+                border-color: transparent;
+                width: 0;
+                height: 0;
+                top: -16px;
+                position: absolute;
+                border-bottom-color: $dark-blue;
+                border-width: 8px;
+                border-style: solid;
+                left: 16px;
+            }
+            li.menu-container:hover > ul.submenu {
+                @include opacity(1);
+                @include transform(translate3d(0, 46px, 0));
+                height: auto;
+                pointer-events: all;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/* Common styles and resets */
+
+.dotstyle {
+    display: inline-block;
+    div#page-num {
+        text-align: center;
+        p {
+            display: inline-block;
+            padding: 0px 8px;
+            color: white;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        p::before {
+            content: "Page: ";
+        }
+    }
+    ul {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        cursor: default;
+        @include user-select(none);
+        -webkit-touch-callout: none;
+        li {
+            position: relative;
+            display: inline-block;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        li.page-link {
+            width: 16px;
+            height: 16px;
+            a {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                outline: none;
+                @include border-radius(50%);
+                background-color: #fff;
+                background-color: rgba(255, 255, 255, 0.3);
+                text-indent: -999em; /* make the text accessible to screen readers */
+                cursor: pointer;
+                position: absolute;
+            }
+            a:focus {
+                outline: none;
+            }
+        }
+        li.prev, li.next {
+            a {
+                color: white;
+            }
+        }
+        li.prev.disabled, li.next.disabled {
+            a {
+                color: rgba(255,255,255, 0.4);
+            }
+        }
+    }
+}
+
+/* Stroke */
+
+.dotstyle-stroke {
+    li.page-link {
+        a {
+            @include box-shadow(0 0 0 2px rgba(255, 255, 255, 0));
+            @include transition(0.3s);
+        }
+        a:hover, a:focus {
+            background-color: white;
+        }
+    }
+    li.page-link.current a {
+        background-color: transparent;
+        @include box-shadow(0 0 0 2px white);
+    }
+}

@@ -1,0 +1,167 @@
+/* Form Styles */
+@import "compass/css3/transition";
+
+$border-grey: rgba(0, 0, 0, 0.17);
+
+$warning: #f1c40f;
+$danger: #e74c3c;
+$success: #2ecc71;
+
+$pagination-border-grey: #e4e7ea;
+$green-hover: #1abc9c;
+
+$grey: #eff0f2;
+$dark-blue: #34495e;
+
+input, textarea {
+    @include transition(opacity 0.2s linear 0);
+    margin: 0;
+    padding: 6px;
+    font-family: "Open Sans", "Helvetica", sans-serif;
+    @include respond(all-phones) {
+        font-size: 14px;
+    }
+    font-size: 16px;
+    
+    border-width:  2px;
+    border-style: solid;
+    border-color: $border-grey;
+    @include border-radius(4px);
+    //@include opacity(0.95);
+}
+
+input:focus, textarea:focus {
+    //outline: 0;
+}
+
+div.input-group.full-width {
+    width: 100%;
+}
+
+div.input-group {
+    position: relative;
+    @include transition(opacity 0.2s linear 0);
+    //@include opacity(0.95);
+    @include border-radius(4px);
+    border-width:  2px;
+    border-style: solid;
+    border-color: $border-grey;
+    display: inline-block;
+    input {
+        @include opacity(1);
+        border: 0;
+        width: 100%;
+        padding-right: 30px;
+    }
+    span.icon {
+        color: $border-grey;
+        position: absolute;
+        right: 0;
+        top: 4px;
+        span {
+            display: inline-block;
+            padding: 6px;
+        }
+    }
+}
+
+.input-group.input-selected, textarea.input-selected, input.input-selected {
+    @include opacity(1);
+}
+
+div.input-group.warning {
+    border-color: $warning;
+    span.icon {
+        color: $warning;
+    }
+}
+
+div.input-group.danger {
+    border-color: $danger;
+    span.icon {
+        color: $danger;
+    }
+}
+
+div.input-group.success {
+    border-color: $success;
+    span.icon {
+        color: $success;
+    }
+}
+
+div.input-group.disabled {
+    @include opacity(1);
+    border-color: $grey;
+    span.icon {
+        color: lighten($border-grey, 15%);
+    }
+    input {
+        background: lighten($grey, 2%);
+    }
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    $border-grey;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    $border-grey;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    $border-grey;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    $border-grey;
+}
+
+
+/* Tool Tip */
+
+div.tooltip {
+    @include border-radius(4px);
+    max-width: 180px;
+    position: absolute;
+    padding: 6px 10px;
+    background: $grey;
+}
+
+div.tooltip:after, div.tooltip.right-arrow:after {
+    content: "";
+    border-color: transparent;
+    width: 0;
+    height: 0;
+    top: -24px;
+    position: absolute;
+    border-bottom-color: $grey;
+    border-width: 12px;
+    border-style: solid;
+    right: 24px;
+}
+
+div.tooltip.left-arrow:after {
+    content: "";
+    border-color: transparent;
+    width: 0;
+    height: 0;
+    top: -24px;
+    position: absolute;
+    border-bottom-color: $grey;
+    border-width: 12px;
+    border-style: solid;
+    left: 24px;
+}
+
+div.tooltip.dark {
+    background: $dark-blue;
+    * {
+        color: white;
+    }
+    p {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+}
+
+div.tooltip.dark.left-arrow:after, div.tooltip.dark.right-arrow:after {
+    border-bottom-color: $dark-blue;
+}

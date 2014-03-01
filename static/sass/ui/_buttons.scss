@@ -1,0 +1,97 @@
+/* Buttons */
+
+@import "compass/css3/border-radius";
+@import "compass/css3/transition";
+@import "compass/css3/opacity";
+
+$black-font: #404040;
+$primary-hover: #48c9b0;
+$primary: #1abc9c;
+
+$warning-hover: #f5d313;
+$warning: #f1c40f;
+
+$danger-hover: #ec7063;
+$danger: #e74c3c;
+
+$success-hover: #58d68d;
+$success: #2ecc71;
+
+$inverse-hover: #415b76;
+$inverse: #34495e;
+
+$info-hover: #5dade2;
+$info: #3498db;
+
+$disabled: #bdc3c7;
+$disabled-font: rgba(255, 255, 255, 0.75);
+
+.btn {
+    display: inline-block;
+    border: none;
+    font-weight: 100;
+    @include border-radius(4px);
+    padding: 10px 15px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    @include transition(background-color .25s linear 0);
+    font-size: 16px;
+    @include respond(all-phones) {
+        font-size: 14px;
+    }
+}
+
+.btn.primary {
+    background-color: $primary;
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: $primary-hover;
+}
+
+.btn.warning {
+    background-color: $warning;
+}
+
+.btn.warning:hover {
+    background-color: $warning-hover;
+}
+
+.btn.danger {
+    background-color: $danger;
+}
+
+.btn.danger:hover {
+    background-color: $danger-hover;
+}
+
+.btn.success {
+    background-color: $success;
+}
+
+.btn.success:hover {
+    background-color: $success-hover;
+}
+
+.btn.inverse {
+    background-color: $inverse;
+}
+
+.btn.inverse:hover {
+    background-color: $inverse-hover;
+}
+
+.btn.info {
+    background-color: $info;
+}
+
+.btn.info:hover {
+    background-color: $info-hover;
+}
+
+.btn.disabled {
+    background-color: $disabled;
+    color: $disabled-font;
+    @include opacity(0.7);
+    cursor: not-allowed;
+}
